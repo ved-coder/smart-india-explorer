@@ -1,0 +1,526 @@
+[
+  {
+    "id": "delhi",
+    "name": "Delhi (National Capital Region)",
+    "description": "A historic metropolis where the ancient past blends seamlessly with the modern present. Home to majestic monuments, bustling spice markets, and political centers.",
+    "capital": "New Delhi",
+    "languages": ["Hindi", "English", "Punjabi"],
+    "culture": {
+      "greetings": "Namaste (palms pressed together) is widely used. Handshakes are common in professional settings.",
+      "dressCode": "Dress modestly. Keep shoulders and knees covered when visiting heritage sites. In religious sites (temples, mosques, gurudwaras), cover your head with a scarf and remove footwear.",
+      "customs": "Remove shoes before entering houses and places of worship. Seek permission before taking photos of people, particularly women or religious ceremonies."
+    },
+    "festivals": [
+      {
+        "name": "Diwali",
+        "months": "October/November",
+        "description": "The Festival of Lights. The entire city is illuminated with oil lamps (diyas), lanterns, and decorative lights. Families exchange sweets and burn sparklers.",
+        "tips": "Book flights early; expect busy airports. Air pollution can spike; high-filtration masks are recommended if you have breathing issues."
+      },
+      {
+        "name": "Holi",
+        "months": "March",
+        "description": "The Festival of Colors. People throw colored powder (gulal) and water at each other, celebrating the arrival of spring.",
+        "tips": "Wear old white clothes that you can discard. Apply coconut oil to your hair and skin beforehand to make color removal easier. Participate in private or hotel celebrations for safety."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Butter Chicken (Murgh Makhani)",
+          "description": "Tender tandoori chicken cooked in a rich, velvety tomato, butter, and cream sauce.",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Dairy, Nuts (cashews used in paste)"
+        },
+        {
+          "name": "Chole Bhature",
+          "description": "Spicy, tangy chickpea curry served with large, fluffy fried leavened bread.",
+          "spicyLevel": "High",
+          "allergyInfo": "Gluten"
+        },
+        {
+          "name": "Aloo Chaat & Golgappa",
+          "description": "Crispy fried potatoes tossed in spices and sweet-sour chutneys; hollow crispy puris filled with spiced water.",
+          "spicyLevel": "High",
+          "allergyInfo": "Gluten (Golgappa)"
+        }
+      ],
+      "hotspots": ["Paranthe Wali Gali (Old Delhi)", "Karim's (near Jama Masjid)", "Pandara Road Market"],
+      "safetyTips": "Only drink bottled mineral water from sealed bottles. Avoid ice in drinks from street stalls. Stick to hot, freshly prepared street food at highly crowded, popular vendors. Wash hands frequently."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "touristPolice": "+91-11-23378890"
+      },
+      "scams": [
+        {
+          "title": "The 'Closed Hotel' Scam",
+          "description": "Touts or taxi drivers claim your pre-booked hotel is closed, burned down, or inaccessible due to a festival, offering to take you to a 'government approved' agency instead.",
+          "avoidance": "Never believe the driver. Call your hotel directly to verify. Demand that the driver take you to the exact address anyway."
+        },
+        {
+          "title": "Inflated Auto-Rickshaw Fares",
+          "description": "Drivers refuse to use the meter and charge international tourists five to ten times the standard rate.",
+          "avoidance": "Use ride-hailing apps like Uber or Ola, or check the fair pricing calculator in this app before negotiating."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Delhi Metro",
+          "description": "World-class, air-conditioned rapid transit system covering the entire city. Fast, clean, and highly reliable.",
+          "baseFare": 10,
+          "perKm": 3,
+          "safetyRating": "Excellent",
+          "ecoFriendly": true,
+          "tips": "Avoid peak hours (8:30 AM - 10:30 AM and 5:30 PM - 8:00 PM). Use the women-only first coach if traveling alone as a female."
+        },
+        {
+          "name": "Auto-Rickshaw",
+          "description": "Three-wheeled open-air green and yellow vehicles. Good for short distances.",
+          "baseFare": 30,
+          "perKm": 11,
+          "safetyRating": "Good (Daytime)",
+          "ecoFriendly": false,
+          "tips": "Always agree on a price before boarding or insist on 'meter pricing'."
+        }
+      ]
+    }
+  },
+  {
+    "id": "rajasthan",
+    "name": "Rajasthan (Land of Kings)",
+    "description": "A magnificent desert state renowned for its majestic hilltop forts, opulent palaces, colorful traditional attire, and rich royal heritage.",
+    "capital": "Jaipur (The Pink City)",
+    "languages": ["Hindi", "Rajasthani", "English"],
+    "culture": {
+      "greetings": "Pressing palms together and saying 'Khamma Ghani' (local greeting) or 'Namaste'.",
+      "dressCode": "Due to dry desert heat and conservativeness, long flowy cotton trousers or skirts and shirts covering shoulders are ideal. Essential to cover legs and shoulders inside temples and forts.",
+      "customs": "Ask before photographing residents. Bargaining is standard practice in bazaars and local shops, but keep it polite."
+    },
+    "festivals": [
+      {
+        "name": "Pushkar Camel Fair",
+        "months": "November",
+        "description": "One of the world's largest camel and livestock fairs, featuring cultural events, music, and thousands of camels in the holy town of Pushkar.",
+        "tips": "Book accommodations months in advance. Respect local vegetarian and alcohol-free rules in the holy town of Pushkar."
+      },
+      {
+        "name": "Jaipur Literature Festival",
+        "months": "January",
+        "description": "The world's largest free literary festival, attracting global authors, Nobel laureates, and thinkers.",
+        "tips": "Register online early. Secure transit early as Jaipur becomes heavily crowded."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Dal Baati Churma",
+          "description": "Round wheat-flour balls baked in clay ovens (Baati), dipped in clarified butter (Ghee), served with a thick mixed-lentil curry (Dal) and sweet crushed wheat mixture (Churma).",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Dairy, Gluten"
+        },
+        {
+          "name": "Laal Maas",
+          "description": "A fiery royal lamb curry slow-cooked with yogurt, garlic, and hot Mathania red chilies.",
+          "spicyLevel": "Extremely High",
+          "allergyInfo": "Dairy (yogurt)"
+        },
+        {
+          "name": "Gatte ki Sabzi",
+          "description": "Gram flour dumplings cooked in a spiced, tangy yogurt-based gravy.",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Dairy"
+        }
+      ],
+      "hotspots": ["Chokhi Dhani (Jaipur)", "LMB - Laxmi Mishthan Bhandar (Jaipur)", "Savage Garden (Udaipur)"],
+      "safetyTips": "Local Rajasthani food can be exceptionally spicy. Ask for 'mild spice' (kam mirch) when ordering if you are not accustomed to high heat. Stay hydrated in the desert with bottled water and coconut water."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "jaipurTouristPolice": "+91-141-2200333"
+      },
+      "scams": [
+        {
+          "title": "The Gem / Jewelry Export Scam",
+          "description": "A friendly local asks you to help bypass customs duties by purchasing gems that they promise to buy back at a premium in your home country. The gems turn out to be cheap glass or synthetics.",
+          "avoidance": "Never buy jewelry or gemstones under the impression of shipping them for a profit. Buy only from government-certified emporiums with certificates of authenticity."
+        },
+        {
+          "title": "Aggressive Commission Guides",
+          "description": "Guides who offer cheap tours but force you to visit specific marble, carpet, or textile factories where they earn high commissions.",
+          "avoidance": "Hire only government-registered guides with ID badges from official tourist information booths."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Auto-Rickshaw & E-Rickshaw",
+          "description": "Easily available throughout Rajasthan towns. E-rickshaws are cheaper and battery-operated.",
+          "baseFare": 25,
+          "perKm": 10,
+          "safetyRating": "Good",
+          "ecoFriendly": true,
+          "tips": "Negotiate the price before sitting down. E-rickshaws are shared; they follow set routes for very low fares (10-20 Rupees)."
+        },
+        {
+          "name": "Tourist Cabs / Private Car & Driver",
+          "description": "Most popular way to travel between cities like Jaipur, Jodhpur, and Udaipur. Highly comfortable.",
+          "baseFare": 2000,
+          "perKm": 12,
+          "safetyRating": "Excellent",
+          "ecoFriendly": false,
+          "tips": "Book through reputable hotels or official travel desks. Ensure the car has air conditioning working before starting."
+        }
+      ]
+    }
+  },
+  {
+    "id": "maharashtra",
+    "name": "Maharashtra (The Powerhouse State)",
+    "description": "India's commercial and entertainment giant. Spans from the bustling high-rises and Bollywood streets of Mumbai to the ancient rock-cut caves of Ajanta and Ellora.",
+    "capital": "Mumbai (The City of Dreams)",
+    "languages": ["Marathi", "Hindi", "English"],
+    "culture": {
+      "greetings": "Namaste is common. Mumbai has a fast-paced environment; English handshakes are standard in city offices.",
+      "dressCode": "Mumbai is cosmopolitan; Western clothing is common. However, local towns and religious places require modest clothing. Take off shoes before entering religious shrines.",
+      "customs": "Local commuters in Mumbai value train boarding systems. Respect the rush and keep your bags in front of you on public transport."
+    },
+    "festivals": [
+      {
+        "name": "Ganesh Chaturthi",
+        "months": "August/September",
+        "description": "The state's largest festival. Giant, beautiful clay idols of Lord Ganesha are worshipped in public tents (pandals) and homes, ending with grand, dancing processions to immerse the idols in the sea.",
+        "tips": "Be prepared for massive crowds and street blockages, especially in Mumbai and Pune. Visit the famous Lalbaugcha Raja pandal early in the morning."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Vada Pav",
+          "description": "The ultimate Mumbai street food: a spicy deep-fried potato dumpling placed inside a bread bun (pav) with garlic, chili, and sweet chutneys.",
+          "spicyLevel": "High",
+          "allergyInfo": "Gluten"
+        },
+        {
+          "name": "Pav Bhaji",
+          "description": "A thick, spicy mashed vegetable curry cooked with heaps of butter on a flat griddle, served hot with soft butter-toasted bread rolls.",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Dairy, Gluten"
+        },
+        {
+          "name": "Misal Pav",
+          "description": "A spicy sprout curry topped with crispy gram flour noodles (farsan), raw onions, coriander, and lemon, served with pav.",
+          "spicyLevel": "Extremely High",
+          "allergyInfo": "Gluten"
+        }
+      ],
+      "hotspots": ["Girgaon Chowpatty street stalls", "Cafe Mondegar & Leopold Cafe (Colaba)", "Sardar Refreshments (Tardeo)"],
+      "safetyTips": "Mumbai street food is delicious, but spicy. Vada Pav is normally served with a whole salted fried green chili—bite with caution! Drink only bottled water."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "mumbaiPoliceHelpline": "+91-22-22621855"
+      },
+      "scams": [
+        {
+          "title": "The Fake Charity Scam",
+          "description": "Individuals (often children or mothers) approach carrying formulas or baby food and ask you to buy it for them from a nearby designated shop. The shop charges exorbitant rates, and the child returns the product later to split the profit.",
+          "avoidance": "Do not buy goods for strangers at inflated prices. If you want to help, donate directly to registered NGOs."
+        },
+        {
+          "title": "Taxi Overcharging at Airport",
+          "description": "Touts inside the arrival terminal offer 'private cabs' at high rates, bypassing the prepaid taxi line.",
+          "avoidance": "Always use the official Prepaid Taxi counter outside the terminal, or book directly via Uber or Ola apps."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Mumbai Suburban Railway (Local Trains)",
+          "description": "The lifeline of Mumbai. Transporting over 7 million commuters daily.",
+          "baseFare": 5,
+          "perKm": 1,
+          "safetyRating": "Fair (Can be dangerous during crush hours)",
+          "ecoFriendly": true,
+          "tips": "Never attempt to board a moving train. Travel in 'First Class' or 'Ladies Special' to avoid extreme crowd density. Do not travel during office rush hours."
+        },
+        {
+          "name": "Black & Yellow Cabs (Kaali Peeli)",
+          "description": "Traditional non-AC taxis running on meters.",
+          "baseFare": 28,
+          "perKm": 18,
+          "safetyRating": "Good",
+          "ecoFriendly": false,
+          "tips": "Ensure the driver resets the digital meter to base fare (28 INR) before starting."
+        }
+      ]
+    }
+  },
+  {
+    "id": "kerala",
+    "name": "Kerala (God's Own Country)",
+    "description": "A tranquil, tropical paradise famous for its serene palm-fringed backwaters, spice plantations, lush tea gardens of Munnar, and Ayurvedic wellness centers.",
+    "capital": "Thiruvananthapuram",
+    "languages": ["Malayalam", "English"],
+    "culture": {
+      "greetings": "Saying 'Namaskaram' with hands pressed together. Malayalam is the local language, but English literacy is very high.",
+      "dressCode": "Conservative and modest, especially in villages and temples. When visiting temples, men may be required to wear a traditional wrap (Mundu) and go shirtless; women must wear sarees or salwar kameez.",
+      "customs": "Remove footwear before entering homes. Kerala is highly clean; public littering is strongly frowned upon."
+    },
+    "festivals": [
+      {
+        "name": "Onam",
+        "months": "August/September",
+        "description": "Harvest festival of Kerala. Celebrated with floral carpets (Pookalam), elaborate feasts served on banana leaves (Sadya), and energetic snake boat races (Vallam Kali).",
+        "tips": "Book a house boat cruise in Alleppey well in advance. Attend a Kathakali dance or Kalaripayattu martial arts show."
+      },
+      {
+        "name": "Thrissur Pooram",
+        "months": "April/May",
+        "description": "One of the most colorful temple festivals, featuring a spectacular procession of decorated elephants, temple percussion music, and massive fireworks.",
+        "tips": "It gets hot and extremely noisy due to firecrackers; carry earplugs and stay hydrated."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Kerala Sadya",
+          "description": "A grand vegetarian banquet of 24-28 dishes served on a fresh banana leaf, featuring parboiled red rice, curries, pickles, and payasam (sweet pudding).",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Coconut (highly used in all dishes)"
+        },
+        {
+          "name": "Karimeen Pollichathu",
+          "description": "Pearl spot fish marinated in spicy local masala, wrapped in a banana leaf, and roasted to perfection.",
+          "spicyLevel": "High",
+          "allergyInfo": "Fish"
+        },
+        {
+          "name": "Appam with Vegetable Stew",
+          "description": "Lacy, fermented rice pancakes with a soft spongy center, served with a mild, aromatic coconut milk stew.",
+          "spicyLevel": "Low",
+          "allergyInfo": "None (Gluten-free, vegan friendly)"
+        }
+      ],
+      "hotspots": ["Fort Kochi Seafood joints", "Paragon Restaurant (Kozhikode)", "Kashi Art Cafe (Fort Kochi)"],
+      "safetyTips": "Coconut oil is the main cooking medium. If your stomach is sensitive to coconut oil or milk, ask if dishes can be prepared with sunflower oil. Seafood is very fresh but verify it's properly cooked."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "keralaTouristPolice": "+91-471-2321153"
+      },
+      "scams": [
+        {
+          "title": "Overpriced Ayurvedic Massages",
+          "description": "Unregistered, sketchy wellness clinics offering expensive 'authentic' Ayurvedic packages that are sub-standard or carried out by untrained masseurs.",
+          "avoidance": "Look for centers accredited with 'Green Leaf' or 'Olive Leaf' certificates issued by the Kerala Tourism Department."
+        },
+        {
+          "title": "Houseboat Booking Agent Scams",
+          "description": "Touts in Alleppey promise luxury houseboats at cheap rates, but deliver poorly maintained boats with no air conditioning and minimal food.",
+          "avoidance": "Inspect the boat in person before paying or booking. Check reviews and book through verified operators."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Local Ferry",
+          "description": "Government-operated water transport connecting Alleppey, Kochi, and islands. Extremely cheap and scenic.",
+          "baseFare": 6,
+          "perKm": 1,
+          "safetyRating": "Excellent",
+          "ecoFriendly": true,
+          "tips": "Use the ferry instead of roads in Kochi to save hours of travel time."
+        },
+        {
+          "name": "KSRTC Buses",
+          "description": "State government transport buses. Connects all cities and hill stations like Munnar.",
+          "baseFare": 10,
+          "perKm": 2,
+          "safetyRating": "Good (Fast drivers)",
+          "ecoFriendly": true,
+          "tips": "Fast passenger buses (Minnal or Superfast) are great for inter-city transit, but drive fast on mountain curves."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tamilnadu",
+    "name": "Tamil Nadu (Land of Temples)",
+    "description": "A culturally rich southern state home to towering Dravidian temples, Bharatanatyam dance, UNESCO world heritage stone carvings, and delicious filter coffee.",
+    "capital": "Chennai",
+    "languages": ["Tamil", "English"],
+    "culture": {
+      "greetings": "Saying 'Vanakkam' with folded hands. English is widely understood in cities and major tourist hubs.",
+      "dressCode": "Very conservative. To enter temples, both men and women must wear clothing covering shoulders and full legs. Avoid shorts, sleeveless shirts, or tight-fitting clothes. Remove shoes outside.",
+      "customs": "Do not touch idols or sacred shrines inside temples. Circumambulate shrines in a clockwise direction."
+    },
+    "festivals": [
+      {
+        "name": "Pongal",
+        "months": "January",
+        "description": "Four-day harvest festival celebrated by boiling sweet rice in clay pots until it overflows (symbolizing prosperity) and honoring cattle.",
+        "tips": "Experience rural celebrations in Madurai or Thanjavur if possible. Transport gets booked out weeks in advance."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Idli & Dosa with Sambar",
+          "description": "Fermented steamed rice cakes (Idli) or crispy rice crepes (Dosa) served with lentil vegetable stew (Sambar) and fresh coconut chutney.",
+          "spicyLevel": "Low",
+          "allergyInfo": "Coconut (in chutney)"
+        },
+        {
+          "name": "Chettinad Chicken Curry",
+          "description": "A very spicy, aromatic chicken dish prepared with fresh-ground spices, coconut, poppy seeds, and curry leaves.",
+          "spicyLevel": "Extremely High",
+          "allergyInfo": "Seeds"
+        },
+        {
+          "name": "Filter Kaapi",
+          "description": "Strong, frothy chicory-blended coffee brewed in a brass filter and served with frothed milk in a traditional tumbler and dabarah cup.",
+          "spicyLevel": "None",
+          "allergyInfo": "Dairy"
+        }
+      ],
+      "hotspots": ["Saravana Bhavan (Chennai)", "Murugan Idli Shop (Madurai)", "Rayar's Mess (Chennai)"],
+      "safetyTips": "Traditional food is eaten with clean bare hands, particularly when served on a banana leaf. Always wash hands before eating. Cutlery can be requested."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "chennaiPoliceControl": "+91-44-23452500"
+      },
+      "scams": [
+        {
+          "title": "Temple Tour Guide Imposters",
+          "description": "Men hanging around large temples (like Meenakshi Temple in Madurai) claiming to be 'official head priests' or registered guides, charging high fees to show 'secret rooms' or skip the line.",
+          "avoidance": "Skip-the-line tickets can only be purchased at the temple's official counter. Registered guides carry official Ministry of Tourism ID badges."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Chennai Suburban Railway & Metro",
+          "description": "Fast and safe transit options within Chennai.",
+          "baseFare": 5,
+          "perKm": 2,
+          "safetyRating": "Excellent",
+          "ecoFriendly": true,
+          "tips": "Suburban trains are cheap, while Metro is air-conditioned and highly comfortable."
+        },
+        {
+          "name": "Auto-Rickshaw",
+          "description": "Three-wheelers. Auto-drivers in Chennai are notorious for refusing to use meters.",
+          "baseFare": 25,
+          "perKm": 12,
+          "safetyRating": "Good (Day)",
+          "ecoFriendly": false,
+          "tips": "Use Ola or Uber apps to book autos in Chennai to avoid bargaining friction."
+        }
+      ]
+    }
+  },
+  {
+    "id": "westbengal",
+    "name": "West Bengal (The Cultural Heart)",
+    "description": "A state of intellectual heritage, historic colonial architecture in Kolkata, tea gardens of Darjeeling, and the mangrove forests of Sundarbans.",
+    "capital": "Kolkata (The City of Joy)",
+    "languages": ["Bengali", "Hindi", "English"],
+    "culture": {
+      "greetings": "Saying 'Noshkar' or 'Namaste' with pressed palms. Handshakes are also common.",
+      "dressCode": "Modest clothing is preferred. Cover knees and shoulders when visiting temples, mosques, or churches. Remove shoes before entering holy shrines.",
+      "customs": "Intellectual discussions, books, and tea (chaa) are highly respected. Avoid touching books or papers with your feet; if you do, touch them with your hand and then your forehead as a gesture of apology."
+    },
+    "festivals": [
+      {
+        "name": "Durga Puja",
+        "months": "September/October",
+        "description": "The largest and grandest festival in West Bengal, turning Kolkata into an open-air art gallery with thousands of massive, beautifully designed themed tents (Pandals) containing clay sculptures of Goddess Durga.",
+        "tips": "Kolkata does not sleep for 5 days. Walk around the pandals at night to avoid the heat. Taxis are difficult to find; use the Kolkata Metro."
+      }
+    ],
+    "food": {
+      "specialties": [
+        {
+          "name": "Maacher Jhol",
+          "description": "A comforting, light Bengali fish curry flavored with mustard oil, ginger, cumin, and a unique 5-spice blend (Panch Phoron).",
+          "spicyLevel": "Medium",
+          "allergyInfo": "Fish, Mustard"
+        },
+        {
+          "name": "Rosogolla & Sandesh",
+          "description": "Soft, spongy cheese balls soaked in light sugar syrup (Rosogolla) or sweet condensed milk fudge (Sandesh).",
+          "spicyLevel": "None",
+          "allergyInfo": "Dairy"
+        },
+        {
+          "name": "Kathi Roll",
+          "description": "Crispy paratha wrap stuffed with marinated grilled chicken, paneer, or eggs, spiced onions, green chilies, and lime juice.",
+          "spicyLevel": "High",
+          "allergyInfo": "Gluten, Egg"
+        }
+      ],
+      "hotspots": ["Mocambo & Peter Cat (Park Street)", "Bhim Chandra Nag (sweets)", "6 Ballygunge Place"],
+      "safetyTips": "Mustard oil is the base of most Bengali dishes and has a sharp, pungent taste. Traditional sweets are fresh, but verify dairy hygiene. Drink bottled mineral water only."
+    },
+    "safety": {
+      "emergencyContacts": {
+        "police": "112",
+        "touristHelpline": "1363",
+        "ambulance": "102",
+        "kolkataPoliceHelpline": "+91-33-22143024"
+      },
+      "scams": [
+        {
+          "title": "Darjeeling Tea Counterfeiting",
+          "description": "Local sellers selling cheap tea dust packaged in premium boxes labeled 'Pure Darjeeling Tea' at high prices.",
+          "avoidance": "Purchase tea only from authorized state tea board outlets or long-established, reputable tea gardens in Darjeeling."
+        }
+      ]
+    },
+    "transport": {
+      "modes": [
+        {
+          "name": "Kolkata Metro",
+          "description": "India's first underground metro system. Clean, fast, and safe.",
+          "baseFare": 5,
+          "perKm": 2,
+          "safetyRating": "Excellent",
+          "ecoFriendly": true,
+          "tips": "Highly recommended to travel across Kolkata and escape traffic congestion."
+        },
+        {
+          "name": "Yellow Taxi & Tram",
+          "description": "Vintage Ambassador yellow taxis and Asia's oldest operating electric trams.",
+          "baseFare": 30,
+          "perKm": 15,
+          "safetyRating": "Good",
+          "ecoFriendly": true,
+          "tips": "Trams are historic and very slow, great for a nostalgic ride, not for urgent travel. Ensure yellow taxis run on the official fare chart or meter."
+        }
+      ]
+    }
+  }
+]
