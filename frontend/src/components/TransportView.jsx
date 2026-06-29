@@ -1,16 +1,176 @@
-import React, { useState } from 'react';
-import { Train, Info, Calculator, ShieldCheck, Compass, AlertCircle, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Train, Info, Calculator, ShieldCheck, Compass, AlertCircle, X, MapPin } from 'lucide-react';
+
+// Landmark definitions for each supported region
+const regionalLandmarks = {
+  delhi: [
+    { id: 'airport', name: 'Indira Gandhi International Airport' },
+    { id: 'cp', name: 'Connaught Place (City Center)' },
+    { id: 'redfort', name: 'Red Fort (Old Delhi)' },
+    { id: 'indiagate', name: 'India Gate' },
+    { id: 'qutub', name: 'Qutub Minar' }
+  ],
+  rajasthan: [
+    { id: 'station', name: 'Jaipur Railway Station' },
+    { id: 'hawamahal', name: 'Hawa Mahal' },
+    { id: 'amerfort', name: 'Amer Fort' },
+    { id: 'citypalace', name: 'City Palace' }
+  ],
+  maharashtra: [
+    { id: 'csmt', name: 'Chhatrapati Shivaji Terminus (CSMT)' },
+    { id: 'gateway', name: 'Gateway of India' },
+    { id: 'marinedrive', name: 'Marine Drive' },
+    { id: 'airport_mum', name: 'Mumbai Airport (T2)' }
+  ],
+  kerala: [
+    { id: 'ernakulam', name: 'Ernakulam Junction' },
+    { id: 'fortkochi', name: 'Fort Kochi' },
+    { id: 'airport_koc', name: 'Kochi Airport' }
+  ],
+  tamilnadu: [
+    { id: 'central', name: 'Chennai Central Station' },
+    { id: 'marina', name: 'Marina Beach' },
+    { id: 'airport_maa', name: 'Chennai Airport' }
+  ],
+  westbengal: [
+    { id: 'howrah', name: 'Howrah Junction' },
+    { id: 'victoria', name: 'Victoria Memorial' },
+    { id: 'airport_ccu', name: 'Kolkata Airport' }
+  ]
+};
+
+// Distance matrix lookup (sorted alphabetically by key name)
+const routeDistances = {
+  delhi: {
+    'airport-cp': 16,
+    'airport-redfort': 22,
+    'airport-indiagate': 14,
+    'airport-qutub': 13,
+    'cp-redfort': 6,
+    'cp-indiagate': 3,
+    'cp-qutub': 14,
+    'redfort-indiagate': 5,
+    'redfort-qutub': 18,
+    'indiagate-qutub': 12
+  },
+  rajasthan: {
+    'hawamahal-station': 5,
+    'amerfort-station': 13,
+    'citypalace-station': 4,
+    'amerfort-hawamahal': 9,
+    'citypalace-hawamahal': 1,
+    'amerfort-citypalace': 9
+  },
+  maharashtra: {
+    'csmt-gateway': 2,
+    'csmt-marinedrive': 3,
+    'airport_mum-csmt': 22,
+    'gateway-marinedrive': 4,
+    'airport_mum-gateway': 24,
+    'airport_mum-marinedrive': 23
+  },
+  kerala: {
+    'ernakulam-fortkochi': 12,
+    'airport_koc-ernakulam': 30,
+    'airport_koc-fortkochi': 42
+  },
+  tamilnadu: {
+    'central-marina': 4,
+    'airport_maa-central': 19,
+    'airport_maa-marina': 17
+  },
+  westbengal: {
+    'howrah-victoria': 6,
+    'airport_ccu-howrah': 16,
+    'airport_ccu-victoria': 20
+  }
+};
+
+const getRouteDistance = (regionId, src, dest) => {
+  if (!src || !dest) return 0;
+  if (src === dest) return 0;
+  
+  const key = [src, dest].sort().join('-');
+  const regionRoutes = routeDistances[regionId];
+  if (regionRoutes && regionRoutes[key] !== undefined) {
+    return regionRoutes[key];
+  }
+  return 8; // Fallback average distance
+};
 
 export default function TransportView({ regions, selectedRegionId }) {
   const [distance, setDistance] = useState('5');
+  const [source, setSource] = useState('');
+  const [destination, setDestination] = useState('');
   const [showDriverModal, setShowDriverModal] = useState(false);
   const [activeMode, setActiveMode] = useState(null);
 
   const selectedRegion = regions.find(r => r.id === selectedRegionId) || regions[0];
+  const landmarks = regionalLandmarks[selectedRegionId] || [];
+
+  // Reset route selections on region change
+  useEffect(() => {
+    setSource('');
+    setDestination('');
+    setDistance('5');
+  }, [selectedRegionId]);
+
+  const handleRouteChange = (src, dest) => {
+    setSource(src);
+    setDestination(dest);
+    if (src && dest) {
+      if (src === dest) {
+        setDistance('0');
+      } else {
+        const dist = getRouteDistance(selectedRegionId, src, dest);
+        setDistance(dist.toString());
+      }
+    }
+  };
+
+  // Compile list of modes: Database modes + Universal modes (Walking, Bus, App-based Taxi)
+  const dbModes = selectedRegion?.transport?.modes || [];
+  
+  const universalModes = [
+    {
+      name: "Walking",
+      description: "Explore on foot. Zero cost, highly eco-friendly, and great for sightseeing close-range marketplace areas.",
+      baseFare: 0,
+      perKm: 0,
+      safetyRating: "Good (Daytime)",
+      ecoFriendly: true,
+      tips: "Keep an eye on traffic. Walk on footpaths where available."
+    },
+    {
+      name: "Local City Bus",
+      description: "State-run public transit buses. Very cheap but can be crowded.",
+      baseFare: 10,
+      perKm: 2,
+      safetyRating: "Fair",
+      ecoFriendly: true,
+      tips: "Keep your backpack in front of you. Prepare exact change if possible."
+    }
+  ];
+
+  const hasCab = dbModes.some(m => m.name.toLowerCase().includes('cab') || m.name.toLowerCase().includes('taxi'));
+  const allModes = [...dbModes, ...universalModes];
+  
+  if (!hasCab) {
+    allModes.push({
+      name: "App-Based Taxi",
+      description: "Private air-conditioned cabs booked via Ola or Uber. Highly comfortable and safe.",
+      baseFare: 50,
+      perKm: 18,
+      safetyRating: "Excellent",
+      ecoFriendly: false,
+      tips: "Verify the driver's name and vehicle license plate in the app before boarding."
+    });
+  }
 
   const calculateFare = (mode) => {
     const distNum = parseFloat(distance) || 0;
     if (distNum <= 0) return 0;
+    if (mode.name === "Walking") return 0;
     
     if (distNum <= 1) return mode.baseFare;
     return mode.baseFare + Math.round(mode.perKm * (distNum - 1));
@@ -19,6 +179,11 @@ export default function TransportView({ regions, selectedRegionId }) {
   const handleShowDriver = (mode) => {
     setActiveMode(mode);
     setShowDriverModal(true);
+  };
+
+  const getLandmarkName = (id) => {
+    const lm = landmarks.find(l => l.id === id);
+    return lm ? lm.name : '';
   };
 
   return (
@@ -31,16 +196,15 @@ export default function TransportView({ regions, selectedRegionId }) {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: '#faf8f5',
+          backgroundColor: 'rgba(22, 38, 33, 0.4)',
+          backdropFilter: 'blur(8px)',
           color: '#1e252b',
           zIndex: 1000,
           display: 'flex',
-          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           padding: '2rem'
         }}>
-          {/* Ticket pass container */}
           <div style={{
             width: '100%',
             maxWidth: '380px',
@@ -76,6 +240,28 @@ export default function TransportView({ regions, selectedRegionId }) {
                   क्या यह किराया सही है?
                 </p>
               </div>
+
+              {/* Route Path (if selected) */}
+              {source && destination && (
+                <div style={{ 
+                  textAlign: 'center', 
+                  background: 'var(--primary-light)', 
+                  padding: '0.65rem 1rem', 
+                  borderRadius: '12px', 
+                  width: '100%', 
+                  fontSize: '0.8rem', 
+                  color: 'var(--primary)', 
+                  fontWeight: 'bold',
+                  border: '1px solid #fed7aa',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.4rem'
+                }}>
+                  <MapPin size={14} />
+                  <span>{getLandmarkName(source)} ➔ {getLandmarkName(destination)}</span>
+                </div>
+              )}
 
               {/* Price Tag Box */}
               <div style={{ background: '#f8fafc', padding: '1.5rem 2.5rem', borderRadius: '16px', border: '1px solid #e2e8f0', textAlign: 'center', minWidth: '220px' }}>
@@ -120,62 +306,103 @@ export default function TransportView({ regions, selectedRegionId }) {
               Fare Calculator
             </h2>
 
+            {/* Route Selection Criteria */}
+            {landmarks.length > 0 && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem', borderBottom: '1px dashed var(--border-color)', paddingBottom: '1.25rem' }}>
+                <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-light)', letterSpacing: '0.5px' }}>
+                  Select Route
+                </h4>
+                <div className="form-group" style={{ marginBottom: '0.5rem' }}>
+                  <label className="form-label" htmlFor="route-source">From (Source)</label>
+                  <select
+                    id="route-source"
+                    className="form-control"
+                    value={source}
+                    onChange={(e) => handleRouteChange(e.target.value, destination)}
+                  >
+                    <option value="">Select Starting Point</option>
+                    {landmarks.map(lm => (
+                      <option key={lm.id} value={lm.id}>{lm.name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" htmlFor="route-dest">To (Destination)</label>
+                  <select
+                    id="route-dest"
+                    className="form-control"
+                    value={destination}
+                    onChange={(e) => handleRouteChange(source, e.target.value)}
+                  >
+                    <option value="">Select Endpoint</option>
+                    {landmarks.map(lm => (
+                      <option key={lm.id} value={lm.id}>{lm.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {/* Custom Distance Field */}
             <div className="form-group">
               <label className="form-label" htmlFor="calc-dist">Estimated Distance (km)</label>
               <input
                 id="calc-dist"
                 type="number"
-                min="1"
+                min="0"
                 max="100"
                 className="form-control"
                 value={distance}
-                onChange={(e) => setDistance(e.target.value)}
+                onChange={(e) => {
+                  setDistance(e.target.value);
+                  setSource('');
+                  setDestination('');
+                }}
               />
               <span style={{ fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '4px', display: 'block' }}>
-                Enter route distance to compare standard rates.
+                Distance updates automatically when selecting a route above.
               </span>
             </div>
 
-            {selectedRegion?.transport?.modes && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1.25rem' }}>
-                <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-light)', letterSpacing: '0.5px' }}>
-                  Estimates ({distance} km)
-                </h4>
-                
-                {selectedRegion.transport.modes.map((mode, idx) => (
-                  <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', background: 'white', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <div>
-                        <div style={{ fontWeight: 'bold', fontSize: '0.85rem' }}>{mode.name}</div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--text-light)' }}>
-                          Base: ₹{mode.baseFare} | Km: ₹{mode.perKm}
-                        </div>
-                      </div>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--secondary)' }}>
-                        ₹{calculateFare(mode)}
+            {/* Estimates List */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1.25rem' }}>
+              <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-light)', letterSpacing: '0.5px' }}>
+                Estimates ({distance} km)
+              </h4>
+              
+              {allModes.map((mode, idx) => (
+                <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', background: 'white', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div style={{ fontWeight: 'bold', fontSize: '0.85rem' }}>{mode.name}</div>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-light)' }}>
+                        {mode.name === "Walking" ? "Zero Cost" : `Base: ₹${mode.baseFare} | Km: ₹${mode.perKm}`}
                       </div>
                     </div>
-                    
-                    <button 
-                      className="btn btn-secondary" 
-                      style={{ padding: '0.3rem', fontSize: '0.75rem', width: '100%', background: 'var(--primary-light)', color: 'var(--primary)', border: '1px solid #fed7aa', fontWeight: 'bold', borderRadius: '8px' }}
-                      onClick={() => handleShowDriver(mode)}
-                    >
-                      Show Driver
-                    </button>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--secondary)' }}>
+                      ₹{calculateFare(mode)}
+                    </div>
                   </div>
-                ))}
-              </div>
-            )}
+                  
+                  <button 
+                    className="btn btn-secondary" 
+                    style={{ padding: '0.3rem', fontSize: '0.75rem', width: '100%', background: 'var(--primary-light)', color: 'var(--primary)', border: '1px solid #fed7aa', fontWeight: 'bold', borderRadius: '8px' }}
+                    onClick={() => handleShowDriver(mode)}
+                  >
+                    Show Driver
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Transport Modes Guide */}
         <div>
-          <h2 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Available Vehicles</h2>
+          <h2 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Available Vehicles & Details</h2>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {selectedRegion?.transport?.modes?.map((mode, index) => (
+            {allModes.map((mode, index) => (
               <div key={index} className="glass-panel" style={{ borderLeft: '4px solid var(--secondary)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '0.5rem' }}>
                   <h3 style={{ fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 'bold' }}>
@@ -225,3 +452,4 @@ export default function TransportView({ regions, selectedRegionId }) {
     </div>
   );
 }
+
