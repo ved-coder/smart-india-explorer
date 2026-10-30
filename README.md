@@ -80,3 +80,15 @@ To keep credentials secure, this repository is configured with a strict `.gitign
 - Local dynamic user records and passwords (`backend/data/db.json`).
 - Node packages (`node_modules/`).
 - Local build outputs, configurations, and environment secrets (`.env`).
+
+---
+
+## 🌐 Deploy to Vercel
+
+This repository is pre-configured with a zero-setup `vercel.json` and a serverless entry point at `api/index.js` for instant deployment:
+
+1. Push your repository to GitHub.
+2. Go to [Vercel Dashboard](https://vercel.com/new).
+3. Import your GitHub repository (`smart-india-explorer`).
+4. Keep the **Root Directory** as default (`./`).
+5. Click **Deploy**. Vercel will automatically build the React Vite frontend and deploy the Express API as Serverless Functions at `/api/*`.

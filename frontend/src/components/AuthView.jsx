@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Compass, User, Lock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { API_BASE_URL } from '../config/api';
 
 export default function AuthView({ onAuthSuccess }) {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -20,7 +21,7 @@ export default function AuthView({ onAuthSuccess }) {
       : { username: username.trim(), password };
 
     try {
-      const response = await fetch(`http://localhost:8081/api/auth/${endpoint}`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

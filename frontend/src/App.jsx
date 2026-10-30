@@ -9,6 +9,7 @@ import SafetyView from './components/SafetyView';
 import CultureView from './components/CultureView';
 import TransportView from './components/TransportView';
 import AuthView from './components/AuthView';
+import { API_BASE_URL } from './config/api';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -30,7 +31,7 @@ export default function App() {
         setLoading(true);
         setBackendOffline(false);
 
-        const regionsRes = await fetch('http://localhost:8081/api/regions');
+        const regionsRes = await fetch(`${API_BASE_URL}/api/regions`);
         if (!regionsRes.ok) throw new Error('Failed to fetch regions');
         const regionsData = await regionsRes.json();
         setRegions(regionsData);
@@ -63,7 +64,7 @@ export default function App() {
         return;
       }
       try {
-        const itinerariesRes = await fetch(`http://localhost:8081/api/itineraries?userId=${currentUser.id}`);
+        const itinerariesRes = await fetch(`${API_BASE_URL}/api/itineraries?userId=${currentUser.id}`);
         if (itinerariesRes.ok) {
           const itinerariesData = await itinerariesRes.json();
           setSavedItineraries(itinerariesData);
@@ -81,7 +82,7 @@ export default function App() {
   // Fetch detailed info of a single region when user deep dives
   const fetchSingleRegion = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8081/api/regions/${id}`);
+      const response = await fetch(`${API_BASE_URL}/api/regions/${id}`);
       if (!response.ok) throw new Error('Failed to fetch region details');
       const data = await response.json();
       
@@ -121,7 +122,7 @@ export default function App() {
 
   const handleDeleteItinerary = async (id) => {
     try {
-      await fetch(`http://localhost:8081/api/itineraries/${id}`, {
+      await fetch(`${API_BASE_URL}/api/itineraries/${id}`, {
         method: 'DELETE',
       });
       setSavedItineraries(prev => prev.filter(item => item.id !== id));

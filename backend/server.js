@@ -6,17 +6,15 @@ import regionsRouter from './routes/regions.js';
 import itinerariesRouter from './routes/itineraries.js';
 import authRouter from './routes/auth.js';
 
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8081;
 
-// Enable CORS for frontend connection (standard Vite port is 5173)
+// Enable CORS for frontend connection (supporting localhost and deployed domains)
 app.use(cors({
-  origin: [
-    'http://localhost:5173', 'http://127.0.0.1:5173',
-    'http://localhost:5174', 'http://127.0.0.1:5174'
-  ],
+  origin: true,
   credentials: true
 }));
 
@@ -52,9 +50,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error: ' + err.message });
 });
 
-app.listen(PORT, () => {
-  console.log(`==================================================`);
-  console.log(`🚀 Smart India Explorer backend running on port ${PORT}`);
-  console.log(`👉 Health check: http://localhost:${PORT}/api/health`);
-  console.log(`==================================================`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`==================================================`);
+    console.log(`🚀 Smart India Explorer backend running on port ${PORT}`);
+    console.log(`👉 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`==================================================`);
+  });
+}
+
+export default app;

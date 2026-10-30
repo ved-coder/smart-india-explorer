@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Trash2, ShieldAlert, Navigation, Sparkles, Coffee, DollarSign, Clock, Check } from 'lucide-react';
+import { API_BASE_URL } from '../config/api';
 
 export default function ItineraryView({ regions, savedItineraries, onSaveItinerary, onDeleteItinerary, currentUser }) {
   const [regionId, setRegionId] = useState(regions[0]?.id || '');
@@ -40,7 +41,7 @@ export default function ItineraryView({ regions, savedItineraries, onSaveItinera
     setError('');
     
     try {
-      const response = await fetch('http://localhost:8081/api/itineraries', {
+      const response = await fetch(`${API_BASE_URL}/api/itineraries`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
